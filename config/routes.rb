@@ -1,4 +1,15 @@
 ScreenerTrack::Application.routes.draw do
+
+
+  match 'about' => 'pages#about'
+  match 'faq' => 'pages#faq'
+  match 'policies' => 'pages#policies'
+  match 'contact' => 'pages#contact'
+  
+  root :to => "pages#index"
+  
+  
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
