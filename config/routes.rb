@@ -5,7 +5,7 @@ ScreenerTrack::Application.routes.draw do
   match 'faq' => 'pages#faq'
   match 'policies' => 'pages#policies'
   match 'contact' => 'pages#contact'
-  
+  match 'roles(:role)' => 'pages#roles' , :as => 'roles'
   root :to => "pages#index"
   
   

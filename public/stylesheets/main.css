@@ -2,6 +2,10 @@ div.clear {
 	clear: both;
 }
 
+body {
+	background: #999;
+}
+
 div#header{
 text-align:center;
 width:960px;
