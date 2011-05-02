@@ -1,9 +1,13 @@
+
+
 div.clear {
 	clear: both;
 }
 
 body {
 	background: #999;
+	font-family: helvetica;
+	color: #444;
 }
 
 div#header{
@@ -19,8 +23,9 @@ img#logo{
 div#topnav{
 	border-top:1px solid black;
 	border-bottom:1px solid black;
-	background-color:blue;
+	background-color: #226;
 	width:960px;
+	margin-bottom: 10px;
 
 	
 }
