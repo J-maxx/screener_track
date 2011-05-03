@@ -23,6 +23,14 @@
 		<%= f.label :password_confirmation %><br />
 		<%= f.password_field :password_confirmation %>
 	</p>	
-	<p class = 'button'><%= f.submit %></p>
+	<p>
+		<select class="request_action" name ="role">
+	 		<option class='option' value='user' selected ='selected'>User</option>
+	 		<option class='option' value='postcrew'>Post Crew</option>
+		 	<option class='option' value='manager'>Manager</option>	 		
+			<option class='option' value='approver'>Approver</option>
+		</select>
+	</p>
+	<p class = 'button'><%= f.submit "Create Log In"%></p>
 <% end %>
 

@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   
   def create
     @user = User.new(params[:user])
-    @user.role= ['guest','user','crew','manager','approver'][rand(5)]
+    @user.role= params[:role]
     
       if @user.save
         redirect_to root_url, :notice => 'You are signed up.'
