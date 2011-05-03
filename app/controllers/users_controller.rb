@@ -10,7 +10,7 @@ class UsersController < ApplicationController
     @user.role= params[:role]
     
       if @user.save
-       redirect_to create_session_path #, :notice => 'You are signed up.'
+       redirect_to create_session_path , :notice => 'You are signed up.'
       #  redirect_to root_url, :notice => 'You are signed up.'
       else
         render 'new'
