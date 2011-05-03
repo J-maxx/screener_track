@@ -1,18 +1,28 @@
 ScreenerTrack::Application.routes.draw do
 
-  get "log_out" => "sessions#destroy", :as => "log_out"
-  get "log_in" => "sessions#new", :as => "log_in"
-  get "sign_up" => "users#new", :as => "sign_up"
+  get "logout"   => "sessions#destroy",  :as => "logout"
+  get "login"    => "sessions#new",      :as => "login"
+  get "signup"   => "users#new",         :as => "signup"
+  
+  match "user/edit" => "users#edit", :as => "edit_current_user"
   
   resources :users
   resources :sessions
 
-  match 'about' => 'pages#about'
-  match 'faq' => 'pages#faq'
-  match 'policies' => 'pages#policies'
-  match 'contact' => 'pages#contact'
-  match 'roles(:role)' => 'pages#roles' , :as => 'roles'
-  root :to => "pages#index"
+  match 'about'            => 'pages#about'
+  match 'faq'              => 'pages#faq'
+  match 'policies'         => 'pages#policies'
+  match 'contact'          => 'pages#contact'
+  match 'roles(:role)'     => 'pages#roles', :as => 'roles'
+  
+  get   'requests/new'     => 'material_requests#new',    :as => 'new_request'
+  post  'requests/create'  => 'material_requests#create'
+  
+  get   'projects/new'
+  post  'projects/create'
+  put   'projects/update'
+  
+  root :to => "pages#home"
   
   
   

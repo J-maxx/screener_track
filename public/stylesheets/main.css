@@ -1,5 +1,4 @@
 
-
 div.clear {
 	clear: both;
 }
@@ -12,7 +11,7 @@ body {
 
 div#header{
 text-align:center;
-width:960px;
+width:75%;
 }
 
 img#logo{
@@ -24,7 +23,7 @@ div#topnav{
 	border-top:1px solid black;
 	border-bottom:1px solid black;
 	background-color: #226;
-	width:960px;
+	width:760px;
 	margin-bottom: 10px;
 
 	

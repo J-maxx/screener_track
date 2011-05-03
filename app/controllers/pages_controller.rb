@@ -1,5 +1,5 @@
 #require 'app/models/fakemodels.rb'
-
+# 
 # class User
 #  attr_accessor :role, :name, :email
 #  def initialize
@@ -8,7 +8,7 @@
 #     @email = 'fred@mailinator.com'
 #   end
 # end
-
+# 
 # class Requests
 #   attr_accessor :asset, :request_id, :request_status
 #   def initialize
@@ -29,6 +29,7 @@ class PagesController < ApplicationController
   #         @requests =[]
   #          (1..10).each {@requests<< Requests.new}
   #     end
+  
   def about
     render :about
   end
