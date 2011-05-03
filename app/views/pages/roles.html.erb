@@ -14,11 +14,15 @@
 
 				<tr>
 					<td>
+						<%= "current user" %>
+						<%= @current_user.role %>
 					<select class="request_action">
-				 		<%= "<option class='option' value='edit'     selected='selected'> Edit   </option>" if @current_user.role == 'user' %>
-						<%= "<option class='option' value='approve'  selected='selected'> Approve</option>" if @current_user.role == 'approver' %>
-						<%= "<option class='option' value='reject'                      > Reject </option>" if @current_user.role == 'approver' %>			
-						<%= "<option class='option' value='fulfill'                     > Fulfill</option>"  if @current_user.role == 'manager'%>
+
+				 		<%= raw '<option class="option" value="edit"    selected="selected"> Edit   </option>'if @current_user.role == 'user' %>
+				
+						<%= "<option class='option' value='approve'  selected='selected'> Approve</option>".html_safe if @current_user.role == 'approver' %>
+						<%= "<option class='option' value='reject'                      > Reject </option>".html_safe if @current_user.role == 'approver' %>			
+						<%= "<option class='option' value='fulfill'                     > Fulfill</option>".html_safe  if @current_user.role == 'manager'%>
 					</select>
 					</td>
 					<td><%= req.request_status =%><td>

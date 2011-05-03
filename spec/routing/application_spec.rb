@@ -6,16 +6,23 @@ describe 'Application Routing' do
     
     it 'recognizes and routes pages/about' do
     {:get => '/about'}.should route_to :controller => 'pages', :action => 'about'
-  end
+    end
   
     it 'recognizes and routes pages/about' do
     {:get => '/faq'}.should route_to :controller => 'pages', :action => 'faq'
-  end
+    end
     it 'recognizes and routes pages/about' do
     {:get => '/policies'}.should route_to :controller => 'pages', :action => 'policies'
-  end
+    end
     it 'recognizes and routes pages/about' do
     {:get => '/contact'}.should route_to :controller => 'pages', :action => 'contact'
+    end
   end
-end
+
+  describe SessionsController do
+     it 'recognizes and routes session/create' do
+      {:get => session_create_path}.should route_to :controller => 'sessions', :action => 'create'
+    end
+  end
+  
 end
