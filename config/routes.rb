@@ -6,8 +6,11 @@ ScreenerTrack::Application.routes.draw do
   
   match "user/edit" => "users#edit", :as => "edit_current_user"
   
+  match "projects/index" => "projects#index", :as => "projects_list"
+  
   resources :users
   resources :sessions
+  resources :projects
 
   match 'about'            => 'pages#about'
   match 'faq'              => 'pages#faq'
@@ -17,10 +20,6 @@ ScreenerTrack::Application.routes.draw do
   
   get   'requests/new'     => 'material_requests#new',    :as => 'new_request'
   post  'requests/create'  => 'material_requests#create'
-  
-  get   'projects/new'
-  post  'projects/create'
-  put   'projects/update'
   
   root :to => "pages#home"
   
