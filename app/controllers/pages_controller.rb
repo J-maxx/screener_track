@@ -1,6 +1,6 @@
-#require 'app/models/fakemodels.rb'
+# require 'app/models/fakemodels.rb'
 # 
-# class User
+# class User2
 #  attr_accessor :role, :name, :email
 #  def initialize
 #     @role= ['guest','user','crew','manager','approver'][rand(5)]
@@ -17,18 +17,18 @@
 #      @request_status = ['sent','approved','fufilled','destroyed'][rand(4)]
 #    end
 # end
-
-
-
-class PagesController < ApplicationController
-  
-  # before_filter :fake_data, :only => [:index]
-  # 
-  # def fake_data
-  #        @user = User.new
-  #         @requests =[]
-  #          (1..10).each {@requests<< Requests.new}
-  #     end
+# 
+# 
+# 
+# class PagesController < ApplicationController
+#   
+#   before_filter :fake_data, :only => [:index]
+#   
+#   def fake_data
+#          @user = User.new
+#           @requests =[]
+#            (1..10).each {@requests<< Requests.new}
+#       end
   
   def about
     render :about
