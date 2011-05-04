@@ -10,7 +10,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110503214657) do
+ActiveRecord::Schema.define(:version => 20110504022638) do
+
+  create_table "assets", :force => true do |t|
+    t.integer  "project_id"
+    t.time     "running_time"
+    t.string   "version_name"
+    t.string   "media"
+    t.string   "cut_description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "projects", :force => true do |t|
     t.string   "name"

@@ -1,5 +1,17 @@
 ScreenerTrack::Application.routes.draw do
 
+  get "assets/new"
+
+  get "assets/create"
+
+  get "assets/edit"
+
+  get "assets/update"
+
+  get "assets/show"
+
+  get "assets/index"
+
   get "logout"   => "sessions#destroy",  :as => "logout"
   get "login"    => "sessions#new",      :as => "login"
   get "signup"   => "users#new",         :as => "signup"
