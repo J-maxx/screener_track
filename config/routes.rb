@@ -1,5 +1,17 @@
 ScreenerTrack::Application.routes.draw do
 
+  get "requests/new"
+
+  get "requests/create"
+
+  get "requests/edit"
+
+  get "requests/update"
+
+  get "requests/show"
+
+  get "requests/index"
+
   get "assets/new"
 
   get "assets/create"
