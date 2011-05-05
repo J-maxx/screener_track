@@ -20,8 +20,8 @@
 # 
 # 
 # 
-# class PagesController < ApplicationController
-#   
+class PagesController < ApplicationController
+ 
 #   before_filter :fake_data, :only => [:index]
 #   
 #   def fake_data

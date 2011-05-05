@@ -1,17 +1,19 @@
+# == Schema Information
+# Schema version: 20110504030435
+#
+# Table name: projects
+#
+#  id         :integer         not null, primary key
+#  name       :string(255)
+#  created_at :datetime
+#  updated_at :datetime
+#
+
 class Project < ActiveRecord::Base
   
-  attr_accessible :running_time, :version_name, :media, :cut_description, :
+  attr_accessible :name
   
   has_many :assets
   
 end
 
-create_table "assets", :force => true do |t|
-   t.integer  "user_id"
-   t.time     "running_time"
-   t.string   "version_name"
-   t.string   "media"
-   t.string   "cut_description"
-   t.datetime "created_at"
-   t.datetime "updated_at"
- end

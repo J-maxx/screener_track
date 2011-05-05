@@ -1,33 +1,9 @@
 ScreenerTrack::Application.routes.draw do
 
-  get "requests/new"
-
-  get "requests/create"
-
-  get "requests/edit"
-
-  get "requests/update"
-
-  get "requests/show"
-
-  get "requests/index"
-
-  get "assets/new"
-
-  get "assets/create"
-
-  get "assets/edit"
-
-  get "assets/update"
-
-  get "assets/show"
-
-  get "assets/index"
-
-  get "logout"   => "sessions#destroy",  :as => "logout"
-  get "login"    => "sessions#new",      :as => "login"
-  get "signup"   => "users#new",         :as => "signup"
+  get   "logout"   => "sessions#destroy",  :as => "logout"
+  get   "login"    => "sessions#new",      :as => "login"
   
+  get   "signup"   => "users#new",         :as => "signup"
   match "user/edit" => "users#edit", :as => "edit_current_user"
   
   match "projects/index" => "projects#index", :as => "projects_list"
@@ -35,6 +11,7 @@ ScreenerTrack::Application.routes.draw do
   resources :users
   resources :sessions
   resources :projects
+  resources :assets
 
   match 'about'            => 'pages#about'
   match 'faq'              => 'pages#faq'

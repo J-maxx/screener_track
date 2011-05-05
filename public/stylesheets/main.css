@@ -9,9 +9,18 @@ body {
 	color: #444;
 }
 
+#container {
+  width: 75%;
+  margin: 0 auto;
+  background-color: #FFF;
+  padding: 20px 40px;
+  border: solid 1px black;
+  margin-top: 20px;
+}
+
 div#header{
 	text-align:center;
-	width:75%;
+	width: absolute;
 	margin: 0px auto;
 }
 
@@ -24,7 +33,7 @@ div#topnav{
 	border-top:1px solid black;
 	border-bottom:1px solid black;
 	background-color: #226;
-	width:760px;
+	width: absolute;
 	margin-bottom: 10px;
 
 	
@@ -56,4 +65,49 @@ div#topnav a:hover{
 div#topnav li{
 	display:block;
 	float:left;
+}
+
+/* stylesheets/application.css */
+
+.simple_form label {
+  float: left;
+  width: 100px;
+  text-align: right;
+  margin: 2px 10px;
+}
+
+.simple_form div.input {
+  margin-bottom: 10px;
+  border: 2px;
+}
+
+.simple_form div.boolean, .simple_form input[type='submit'] {
+  margin-left: 120px;
+}
+
+.simple_form div.boolean label, .simple_form label.collection_radio {
+  float: none;
+  margin: 0;
+}
+
+.simple_form label.collection_radio {
+  margin-right: 10px;
+  margin-left: 2px;
+}
+
+.simple_form .error {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #D00;
+  display: block;
+}
+
+.simple_form .hint {
+  clear: left;
+  margin-left: 120px;
+  font-size: 12px;
+  color: #555;
+  display: block;
+  font-style: italic;
 }
