@@ -22,5 +22,17 @@
 		<%= f.label :password_confirmation %><br />
 		<%= f.password_field :password_confirmation %>
 	</p>	
+<% if "admin"  # will start out being true always. add logic later...	%>
+	<p>
+		<select class="request_action" name ="user[role]" id="role">
+	 		<option class='option' value='user' >User</option>
+	 		<option class='option' value='postcrew'>Post Crew</option>
+		 	<option class='option' value='manager'>Manager</option>	 		
+			<option class='option' value='approver'>Approver</option>
+		</select>
+	</p>
+	
+	<% end %>
+	
 	<p><%= f.submit (@user.new_record? ? "Sign up" : "Update") %></p>
 <% end %>
