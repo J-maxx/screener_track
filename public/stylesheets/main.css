@@ -9,10 +9,14 @@ body {
 	color: #444;
 }
 
-#container {
-	width: 75%;
+div.center{
 	margin: 0 auto;
-	background-color: #FFF;
+	width:300px;
+}
+#container {
+	width: 960px;
+	margin: 0 auto;
+	background-color: #F2F9F4;
 	padding: 20px 40px;
 	border: solid 1px black;
 	margin-top: 20px;
@@ -36,16 +40,25 @@ div#topnav {
 	width: absolute;
 	margin-bottom: 10px;
 }
-div#topnav ul {
+div#topnav ul, div#footer ul, {
 	padding: 0;
 	margin: 0;
 }
-div#topnav li {
+div#topnav li, div#footer li {
 	padding: 0 30px;
 	height: 35px;
+	text-align: center;
+	line-height: 35px;
+	display: block;
+	float: left;
+}
+
+div#topnav li{
 	border-left: 1px solid black;
 	text-align: center;
 	line-height: 35px;
+	display: block;
+	float: left;
 }
 div#topnav li:first-child {
 	border-left: none;
@@ -60,10 +73,14 @@ div#topnav a:hover {
 	text-decoration: underline;
 }
 
-div#topnav li {
-	display: block;
-	float: left;
+
+div#footer{
+	border-top:1px solid black;
 }
+div#footer p {
+	text-align:center;
+}
+
 
 /* stylesheets/application.css */
 

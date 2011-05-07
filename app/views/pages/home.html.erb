@@ -1,7 +1,4 @@
-<h1>this is the main page </h1>
-
-<% if current_user%>
-
+<h1>Hello <%= current_user.email%>. As a <%= current_user.role %> you can see these requests:ß </h1>
 <table>
 		<% for req in  @requests.each do  %>
 				<tr>
@@ -19,5 +16,3 @@
 					</tr>
 		<% end %>
 </table>
-
-<% end %>

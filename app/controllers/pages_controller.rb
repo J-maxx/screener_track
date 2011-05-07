@@ -28,8 +28,12 @@ class PagesController < ApplicationController
         else
         @requests=[] # this is an error, should raise an exception
      end
+     render 'home'
+   else
+      redirect_to login_path
+     
   end
-  render 'home'
+
 end
 end
 
