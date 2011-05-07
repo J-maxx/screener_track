@@ -1,6 +1,16 @@
 <div id="header">
 	<img id="logo" src="/images/logo.png" alt="logo"/>
 	<div id="site-title" ><h1> Screener Track </h1></div>
+	<div id='welcome'>
+	  <% if current_user %>
+	    Logged in as <%= current_user.email %>.
+	    <%= link_to "Log out", logout_path %>
+	  <% else %>
+	    <%= link_to "Sign up", signup_path %> or
+	    <%= link_to "log in", login_path %>
+	  <% end %>
+	</div>
+	<div class="clear"> </div>
 	<div id="topnav">
 		<ul>
 			<li><%= link_to 'Home', root_path %></li>

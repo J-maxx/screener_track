@@ -33,6 +33,14 @@ img#logo {
 	display: inline-block;
 	margin: 0 10px;
 }
+
+div#site-title{
+	width:350px;
+    float:left;
+    margin-left:180px;
+}
+
+
 div#topnav {
 	border-top: 1px solid black;
 	border-bottom: 1px solid black;
