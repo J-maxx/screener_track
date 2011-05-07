@@ -16,6 +16,7 @@ ScreenerTrack::Application.routes.draw do
   resources :sessions
   resources :projects
   resources :assets
+  resources :requests
 
   match 'about'            => 'pages#about'
   match 'faq'              => 'pages#faq'

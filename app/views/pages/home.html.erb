@@ -1,1 +1,23 @@
 <h1>this is the main page </h1>
+
+<% if current_user%>
+
+<table>
+		<% for req in  @requests.each do  %>
+				<tr>
+					<td>
+					<select class="request_action">
+				 		<%= raw '<option class="option" value="edit"    selected="selected"> Edit   </option>'if current_user.role == 'user' %>
+						<%= "<option class='option' value='approve'  selected='selected'> Approve</option>".html_safe if current_user.role == 'approver' %>
+						<%= "<option class='option' value='reject'                      > Reject </option>".html_safe if current_user.role == 'approver' %>			
+						<%= "<option class='option' value='fulfill'                     > Fulfill</option>".html_safe  if current_user.role == 'manager'%>
+					</select>
+					</td>
+					<td><%= req.status =%><td>
+					<td><%= req.asset.version_name %></td>
+					<td><%= req.id %></td>
+					</tr>
+		<% end %>
+</table>
+
+<% end %>

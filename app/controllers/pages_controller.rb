@@ -1,35 +1,4 @@
-# require 'app/models/fakemodels.rb'
-# 
-# class User2
-#  attr_accessor :role, :name, :email
-#  def initialize
-#     @role= ['guest','user','crew','manager','approver'][rand(5)]
-#     @name = 'fred'
-#     @email = 'fred@mailinator.com'
-#   end
-# end
-# 
-# class Requests
-#   attr_accessor :asset, :request_id, :request_status
-#   def initialize
-#      @asset= ['Hanna','One Day','Pariah','The Debt','approver'][rand(4)]
-#      @request_id = 'fred'
-#      @request_status = ['sent','approved','fufilled','destroyed'][rand(4)]
-#    end
-# end
-# 
-# 
-# 
 class PagesController < ApplicationController
- 
-#   before_filter :fake_data, :only => [:index]
-#   
-#   def fake_data
-#          @user = User.new
-#           @requests =[]
-#            (1..10).each {@requests<< Requests.new}
-#       end
-  
   def about
     render :about
   end
@@ -46,9 +15,21 @@ class PagesController < ApplicationController
     render :contact
   end
   
-  def index
-   # redirect_to roles_path(@user.role)
-   #render :roles
+  def home
+  @requests = []
+   if current_user
+     case current_user.role
+        when "user"
+        @requests = Request.where("user_id=#{current_user.id}" )# only this users requests
+        when "postcrew"
+        @requests = Request.all #where("user_id=1") # only requests with status = approved and not complete
+        when "manager"
+        @requests = Request.all # only requests with status = approved and not complete
+        else
+        @requests=[] # this is an error, should raise an exception
+     end
   end
-
+  render 'home'
 end
+end
+
