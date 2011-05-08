@@ -18,4 +18,13 @@ describe 'Application Routing' do
     {:get => '/contact'}.should route_to :controller => 'pages', :action => 'contact'
   end
 end
+
+  describe RequestsController do 
+    
+    it 'recognizes and routes pages/requests' do
+    {:get => '/requests'}.should route_to :controller => 'requests', :action => 'index'
+  end
+end
+
+
 end

@@ -3,9 +3,29 @@
 <head>
   <title>ScreenerTrack</title>
   <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" %>
+  <%= javascript_include_tag "rails" %>
+
   <%= csrf_meta_tag %>
 
+<script type="text/javascript">
+$(document).ready(function() {
+	//Set default open/close settings
+	$('.answer').hide(); //Hide/close all containers
+	//On Click
+	$('.question').click(function(){
+		if( $(this).next().is(':hidden') ) { //If immediate next container is closed...
+			$('.question').removeClass('active').next().slideUp(); //Remove all "active" state and slide up the immediate next container
+			$(this).toggleClass('active').next().slideDown(); //Add "active" state to clicked trigger and slide down the immediate next container
+		}
+		else{
+				$('.question').removeClass('active').next().slideUp();
+		}
+		return false; //Prevent the browser jump to the link anchor
+	});
+
+});
+</script>
 </head>
 
 

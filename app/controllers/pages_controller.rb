@@ -34,7 +34,7 @@ class PagesController < ApplicationController
         when "user"
         @requests = Request.where("user_id=#{current_user.id}" )# only this users requests
         when "postcrew"
-        @requests = Request.all #where("user_id=1") # only requests with status = approved and not complete
+        @requests = Request.where("user_id=2") # only requests with status = approved and not complete
         when "manager"
         @requests = Request.all # only requests with status = approved and not complete
         else
