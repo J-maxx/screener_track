@@ -1,0 +1,51 @@
+(in /Users/charissasmith/Documents/rails/st)
+        user_edit GET    /user/edit(.:format)         {:controller=>"user", :action=>"edit"}
+      user_update GET    /user/update(.:format)       {:controller=>"user", :action=>"update"}
+           logout GET    /logout(.:format)            {:action=>"destroy", :controller=>"sessions"}
+            login GET    /login(.:format)             {:action=>"new", :controller=>"sessions"}
+           signup GET    /signup(.:format)            {:action=>"new", :controller=>"users"}
+edit_current_user        /user/edit(.:format)         {:controller=>"users", :action=>"edit"}
+    projects_list        /projects/index(.:format)    {:controller=>"projects", :action=>"index"}
+            users GET    /users(.:format)             {:action=>"index", :controller=>"users"}
+                  POST   /users(.:format)             {:action=>"create", :controller=>"users"}
+         new_user GET    /users/new(.:format)         {:action=>"new", :controller=>"users"}
+        edit_user GET    /users/:id/edit(.:format)    {:action=>"edit", :controller=>"users"}
+             user GET    /users/:id(.:format)         {:action=>"show", :controller=>"users"}
+                  PUT    /users/:id(.:format)         {:action=>"update", :controller=>"users"}
+                  DELETE /users/:id(.:format)         {:action=>"destroy", :controller=>"users"}
+         sessions GET    /sessions(.:format)          {:action=>"index", :controller=>"sessions"}
+                  POST   /sessions(.:format)          {:action=>"create", :controller=>"sessions"}
+      new_session GET    /sessions/new(.:format)      {:action=>"new", :controller=>"sessions"}
+     edit_session GET    /sessions/:id/edit(.:format) {:action=>"edit", :controller=>"sessions"}
+          session GET    /sessions/:id(.:format)      {:action=>"show", :controller=>"sessions"}
+                  PUT    /sessions/:id(.:format)      {:action=>"update", :controller=>"sessions"}
+                  DELETE /sessions/:id(.:format)      {:action=>"destroy", :controller=>"sessions"}
+         projects GET    /projects(.:format)          {:action=>"index", :controller=>"projects"}
+                  POST   /projects(.:format)          {:action=>"create", :controller=>"projects"}
+      new_project GET    /projects/new(.:format)      {:action=>"new", :controller=>"projects"}
+     edit_project GET    /projects/:id/edit(.:format) {:action=>"edit", :controller=>"projects"}
+          project GET    /projects/:id(.:format)      {:action=>"show", :controller=>"projects"}
+                  PUT    /projects/:id(.:format)      {:action=>"update", :controller=>"projects"}
+                  DELETE /projects/:id(.:format)      {:action=>"destroy", :controller=>"projects"}
+           assets GET    /assets(.:format)            {:action=>"index", :controller=>"assets"}
+                  POST   /assets(.:format)            {:action=>"create", :controller=>"assets"}
+        new_asset GET    /assets/new(.:format)        {:action=>"new", :controller=>"assets"}
+       edit_asset GET    /assets/:id/edit(.:format)   {:action=>"edit", :controller=>"assets"}
+            asset GET    /assets/:id(.:format)        {:action=>"show", :controller=>"assets"}
+                  PUT    /assets/:id(.:format)        {:action=>"update", :controller=>"assets"}
+                  DELETE /assets/:id(.:format)        {:action=>"destroy", :controller=>"assets"}
+         requests GET    /requests(.:format)          {:action=>"index", :controller=>"requests"}
+                  POST   /requests(.:format)          {:action=>"create", :controller=>"requests"}
+      new_request GET    /requests/new(.:format)      {:action=>"new", :controller=>"requests"}
+     edit_request GET    /requests/:id/edit(.:format) {:action=>"edit", :controller=>"requests"}
+          request GET    /requests/:id(.:format)      {:action=>"show", :controller=>"requests"}
+                  PUT    /requests/:id(.:format)      {:action=>"update", :controller=>"requests"}
+                  DELETE /requests/:id(.:format)      {:action=>"destroy", :controller=>"requests"}
+            about        /about(.:format)             {:action=>"about", :controller=>"pages"}
+              faq        /faq(.:format)               {:action=>"faq", :controller=>"pages"}
+         policies        /policies(.:format)          {:action=>"policies", :controller=>"pages"}
+          contact        /contact(.:format)           {:action=>"contact", :controller=>"pages"}
+            roles        /roles(:role)(.:format)      {:controller=>"pages", :action=>"roles"}
+      new_request GET    /requests/new(.:format)      {:controller=>"material_requests", :action=>"new"}
+  requests_create POST   /requests/create(.:format)   {:controller=>"material_requests", :action=>"create"}
+             root        /(.:format)                  {:controller=>"pages", :action=>"home"}

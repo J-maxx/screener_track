@@ -1,5 +1,7 @@
 ScreenerTrack::Application.routes.draw do
 
+  resources :supports
+
   get "user/edit"
 
   get "user/update"
@@ -23,7 +25,7 @@ ScreenerTrack::Application.routes.draw do
   match 'policies'         => 'pages#policies'
   match 'contact'          => 'pages#contact'
   match 'roles(:role)'     => 'pages#roles', :as => 'roles'
-  
+  match 'send_contact'    => 'pages#send_contact'
   get   'requests/new'     => 'material_requests#new',    :as => 'new_request'
   post  'requests/create'  => 'material_requests#create'
   
