@@ -135,13 +135,13 @@ div#footer p {
 	font-style: italic;
 }
 
-li.asset_list span, li.project_list span  {
+li.asset_list span, li.project_list span, li.request_list span {
 	width: 200px;
 	display: block;
 	float: left;
 }
 
-li.asset_list a, li.project_list a {
+li.asset_list a, li.project_list a, li.request_list a {
 	display: block;
 	float: left;
 }

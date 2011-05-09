@@ -28,7 +28,7 @@ ScreenerTrack::Application.routes.draw do
   match 'send_contact'    => 'pages#send_contact'
   get   'requests/new'     => 'material_requests#new',    :as => 'new_request'
   post  'requests/create'  => 'material_requests#create'
-  
+  post 'requests/process_request' => 'requests#process_request'
   root :to => "pages#home"
   
   

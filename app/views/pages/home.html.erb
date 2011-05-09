@@ -1,7 +1,9 @@
 <h1>Hello <%= current_user.email%>. As a <%= current_user.role %> you can see these requests: </h1>
 <table>
-		<% for req in  @requests.each do  %>
+		<% for req in  @requests do  %>
 				<tr>
+					<%= form_tag({:controller =>"requests", :action => "process_request"}, :method =>"post") do %>
+					<td><input name= "commit" type="submit" value="Do it!" %></td>
 					<td>
 					<select class="request_action">
 				 		<%= raw '<option class="option" value="edit"    selected="selected"> Edit   </option>'if current_user.role == 'user' %>
@@ -10,11 +12,16 @@
 						<%= "<option class='option' value='fulfill'                     > Fulfill</option>".html_safe  if current_user.role == 'manager'%>
 					</select>
 					</td>
-					<td><%= req.status =%><td>
 					<td><%= req.asset.project.name =%><td>
+					<td><%= req.asset.version_name =%><td>
+					<td><%= req.status %></td>
 					
-					<td><%= req.asset.version_name %></td>
-					<td><%= req.id %></td>
+					<td><%= req.delivery_method %></td>
+					<td><%= req.required_date %></td>
+
+					<% end %>
+
 					</tr>
 		<% end %>
 </table>
+

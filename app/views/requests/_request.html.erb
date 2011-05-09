@@ -1,7 +1,10 @@
 <li class='request_list'>
-	<span><%= request.asset.project.name %></span>
+	<span><%= request.asset.project.name %></span> 
 	<span><%= request.asset.version_name %></span>
 	<span><%= request.status %></span>
-	<%= link_to "Update", edit_asset_path(asset) %>
+	<span><%= request.delivery_method %></span>
+	<span><%= request.required_date %></span>
+	
+	<%= link_to "Update", edit_request_path(request) %>
 	<div class="clear"></div>
 </li>

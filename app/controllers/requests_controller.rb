@@ -24,6 +24,10 @@ class RequestsController < ApplicationController
   def edit
     @request = Request.find(params[:id])
   end
+  
+  def process_request
+    render "pages/faq"  # just to see if we get here.
+  end
 
   def update
      @request = Request.find(params[:id])
