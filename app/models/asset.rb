@@ -15,7 +15,7 @@
 
 class Asset < ActiveRecord::Base
   
-  attr_accessible :running_time, :version_name, :media, :cut_description
+  attr_accessible :running_time, :version_name, :media, :cut_description, :project_id
   
   belongs_to :project
   
