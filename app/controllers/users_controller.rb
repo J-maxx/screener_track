@@ -19,6 +19,7 @@ class UsersController < ApplicationController
   
   def update
     @user = current_user
+    @user.role = params[:role] # why do I have to do this???
     if @user.update_attributes(params[:user])
       redirect_to root_url, :flash => {:success => "Profile updated successfully."}
     else
@@ -26,3 +27,4 @@ class UsersController < ApplicationController
     end
   end
 end
+

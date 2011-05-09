@@ -15,6 +15,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all(params[:project])
+    # sort here?
   end
 
   def show

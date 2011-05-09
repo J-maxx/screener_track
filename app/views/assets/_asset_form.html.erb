@@ -1,5 +1,7 @@
+
+</br>
 <%= simple_form_for @asset do |f| %>
-	<%= f.association :project, :include_blank => false %>
+	<%= f.association :project, :include_blank => false,  :selected=>params[:project_name] %> 
 	<%= f.input :version_name %>
 	<%= f.input :running_time  %>
 	<%= f.input :media %>

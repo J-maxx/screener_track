@@ -1,9 +1,10 @@
-<li>
+
+<li class="project_list">
 	
-	<%= project.id %>
-	<%= project.name %>
-	<%= project.created_at %>
-	<%= project.updated_at %>
+	<span><%= project.name %></span>
+	<span><%= project.created_at %></span>
+	<span><%= project.updated_at %></span>
 	<%= link_to "Update", edit_project_path(project) %>
-	
+	<div class='clear'></div>
 </li>
+
