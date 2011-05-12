@@ -7,7 +7,7 @@
 #  user_id         :integer
 #  asset_id        :integer
 #  required_date   :date
-#  status          :string(255)ß
+#  status          :string(255)
 #  approver_id     :integer
 #  recipient_id    :integer
 #  delivery_method :string(255)
@@ -21,6 +21,8 @@ class Request < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :asset
+  has_one :project, :through => :asset
+  
 #  has_one :approver
 #  has_one :recipient
   

@@ -24,6 +24,9 @@ class User < ActiveRecord::Base
   
   has_many :requests
   
+  def role
+    self[:role] || "user"
+  end
   
   def self.authenticate(email, password)
     user = find_by_email(email)

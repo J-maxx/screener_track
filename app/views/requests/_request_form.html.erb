@@ -1,10 +1,15 @@
 </br>
-<%= simple_form_for @request do |f| %>
 
+<%= @request.asset.project.name %>
+<%= simple_form_for @request do |f| %>
+	<%= f.association :asset do |a| %>
+		<%= a.input :project%> 
+	<% end %>
 	<%= f.input :required_date %>
 	<%= f.input :status  %>
 	<%= f.input :recipient_id %>
 	<%= f.input :delivery_method %>
 	<%= f.submit (@request.new_record? ? "Create Request" : "Update Request" ) %>
 <% end %>
+
 
