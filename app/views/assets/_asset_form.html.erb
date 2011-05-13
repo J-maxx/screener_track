@@ -3,7 +3,7 @@
 <%= simple_form_for @asset do |f| %>
 	<%= f.association :project, :include_blank => false,  :default=>@asset.project %> 
 	<%= f.input :version_name %>
-	<%= f.input :running_time  %>
+	<%= f.input :running_time, :include_seconds => true  %>
 	<%= f.input :media %>
 	<%= f.input :cut_description %>
 	<%= f.submit (@asset.new_record? ? "Create Asset" : "Update Asset" ) %>

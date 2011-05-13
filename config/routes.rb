@@ -1,34 +1,34 @@
 ScreenerTrack::Application.routes.draw do
-
-  resources :supports
-
-  get "user/edit"
-
-  get "user/update"
-
-  get   "logout"   => "sessions#destroy",  :as => "logout"
-  get   "login"    => "sessions#new",      :as => "login"
-  
-  get   "signup"   => "users#new",         :as => "signup"
-  match "user/edit" => "users#edit", :as => "edit_current_user"
-  
-  match "projects/index" => "projects#index", :as => "projects_list"
   
   resources :users
   resources :sessions
   resources :projects
   resources :assets
   resources :requests
+  
+  match "requests/new" => "requests#new", :as => :new_request
+  
+  get   "logout"   => "sessions#destroy",  :as => "logout"
+  get   "login"    => "sessions#new",      :as => "login"
+  
+  get   "signup"   => "users#new",         :as => "signup"
+  match "user/edit" => "users#edit", :as => "edit_current_user"
+  get "user/edit"
+  get "user/update"
+  
+  match "projects/index" => "projects#index", :as => "projects_list"
+
+  delete "requests/:id" => "requests#destroy", :as => :delete_request
+
+
 
   match 'about'            => 'pages#about'
   match 'faq'              => 'pages#faq'
   match 'policies'         => 'pages#policies'
   match 'contact'          => 'pages#contact'
   match 'roles(:role)'     => 'pages#roles', :as => 'roles'
-  match 'send_contact'    => 'pages#send_contact'
-  get   'requests/new'     => 'material_requests#new',    :as => 'new_request'
-  post  'requests/create'  => 'material_requests#create'
-  post 'requests/process_request' => 'requests#process_request'
+  match 'send_contact'     => 'pages#send_contact'
+  
   root :to => "pages#home"
   
   

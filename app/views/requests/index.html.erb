@@ -1,4 +1,22 @@
-<h1>General Update All Requests -- Admin function</h1>
-<ul>
-<%= render @requests %>
-</ul>
+
+<table class="requests">
+  <tr>
+    <th>ID</th>
+    <th>REQUESTED BY</th>
+    <th>PROJECT</th>
+    <th>VERSION</th>
+	<th>RUN TIME</th>
+  </tr>
+  <% @requests.each do |request| %>
+  <tr>
+    <td><%= request.id %></td>
+	<td><%= request.user.email %></td>
+	<td><%= request.asset.project.name %></td>	
+	<td><%= request.asset.version_name %></td>
+	<td><%= request.asset.running_time.strftime("%X")  %></td>
+    <td><%= link_to 'Edit', edit_request_path(request) %></td>
+    <td><%= button_to 'Destroy', delete_request_path(request),:confirm => 'Are you sure?', :method => :delete%></td>
+	<td><%= button_to 'REQUEST SCREENER', new_request_path(:request_id => request) %></td>
+  </tr>
+  <% end %>
+</table>

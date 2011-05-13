@@ -21,8 +21,7 @@ class Request < ActiveRecord::Base
   
   belongs_to :user
   belongs_to :asset
-#  has_one :approver
-#  has_one :recipient
+  has_one :project, :through => :asset
   
   #  How do we reuse the user table for this??? alias user id in the user table to recipient_id? Same for approver....
   

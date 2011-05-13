@@ -1,13 +1,14 @@
 class RequestsController < ApplicationController
   
   def new
-    @request = Request.new(:user_id => current_user.id)
+    @request = Request.new(:user_id => current_user)
+    @asset = Asset.find(params[:asset_id])
   end
 
   def create
-    @request = Request.new(params[:request])
+    @request = current_user.requests.build(params[:request])
       if @request.save
-        redirect_to root_url, :flash => {:success => "New request #{"@request.asset.version_name"} has been created."}
+        redirect_to root_url, :flash => {:success => "New request #{@request.asset.version_name} has been created."}
       else
         render 'new'
     end
@@ -31,11 +32,18 @@ class RequestsController < ApplicationController
 
   def update
      @request = Request.find(params[:id])
-       if @request.update_attributes(params[:request])
-         redirect_to requests_path, :flash => {:success => "Request profile updated successfully."}
-       else
-         render 'edit'
+     if @request.update_attributes(params[:request])
+       redirect_to requests_path, :flash => {:success => "Request profile updated successfully."}
+     else
+       render 'edit'
      end
   end
+   
+  def destroy
+     @request = Request.find(params[:id])
+     @request.destroy
+     redirect_to requests_path, :flash => {:success => "Request destroyed."}
+  end
+  
 end
 

@@ -1,7 +1,23 @@
-<li class='asset_list'>
-	<span><%= asset.project.name %></span>
-	<span><%= asset.version_name %></span>
-	<span><%= asset.running_time %></span>
-	<%= link_to "Update", edit_asset_path(asset) %>
-	<div class="clear"></div>
-</li>
+
+<table class="assets">
+  <tr>
+    <th>ID</th>
+    <th>PROJECT</th>
+    <th>DESCRIPTION</th>
+    <th>RUN TIME</th>
+  </tr>
+  <% @assets.each do |asset| %>
+  <tr>
+    <td><%= asset.id %></td>
+	<td><%= asset.project.name %></td>
+	<td><%= asset.version_name.upcase %></td>
+    <td><%= asset.running_time.strftime("%X") %></td>
+	<td><%= link_to 'Show', asset %></td>
+    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
+    <td><%= link_to 'Destroy', asset, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= button_to 'REQUEST SCREENER', new_request_path(:asset_id => asset) %></td>
+  </tr>
+  <% end %>
+</table>
+
+

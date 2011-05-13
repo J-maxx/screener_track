@@ -1,10 +1,20 @@
-<li class='request_list'>
-	<span><%= request.asset.project.name %></span> 
-	<span><%= request.asset.version_name %></span>
-	<span><%= request.status %></span>
-	<span><%= request.delivery_method %></span>
-	<span><%= request.required_date %></span>
-	
-	<%= link_to "Update", edit_request_path(request) %>
-	<div class="clear"></div>
-</li>
+
+<table class="requests">
+  <tr>
+    <th>ID</th>
+    <th>PROJECT</th>
+    <th>DESCRIPTION</th>
+    <th>RUN TIME</th>
+  </tr>
+  <% @requests.each do |request| %>
+  <tr>
+    <td><%= request.id %></td>
+	<td><%= link_to 'Show', request %></td>
+    <td><%= link_to 'Edit', edit_request_path(request) %></td>
+    <td><%= link_to 'Destroy', requests, :confirm => 'Are you sure?', :method => :delete %></td>
+	<td><%= button_to 'REQUEST SCREENER', new_request_path(:request_id => request) %></td>
+  </tr>
+  <% end %>
+</table>
+
+
