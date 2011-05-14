@@ -1,6 +1,9 @@
+<h1>Hello <%= current_user.email%>. </h1> 
+<h2>As a <%= current_user.role %> you can see these <%= @requests.length %> requests: </h2>
 
 <table class="requests">
   <tr>
+	<th>ACTIONS</th>
     <th>ID</th>
     <th>REQUESTED BY</th>
     <th>PROJECT</th>
@@ -8,7 +11,12 @@
 	<th>RUN TIME</th>
   </tr>
   <% @requests.each do |request| %>
-  <tr>
+  <tr>		
+	<% @buttons.each do |b|%>
+		<%= form_tag({:controller =>"requests", :action => "process_request"}, :method =>"post") do %>
+			<td><input name= "commit" type="submit" value=<%= b.capitalize %> </td>
+		<% end %>
+	<% end %>
     <td><%= request.id %></td>
 	<td><%= request.user.email %></td>
 	<td><%= request.asset.project.name %></td>	
@@ -16,7 +24,8 @@
 	<td><%= request.asset.running_time.strftime("%X")  %></td>
     <td><%= link_to 'Edit', edit_request_path(request) %></td>
     <td><%= button_to 'Destroy', delete_request_path(request),:confirm => 'Are you sure?', :method => :delete%></td>
-	<td><%= button_to 'REQUEST SCREENER', new_request_path(:request_id => request) %></td>
+<!--	<td><%= button_to 'REQUEST SCREENER', new_request_path(:request_id => request) %></td> -->
   </tr>
   <% end %>
+
 </table>

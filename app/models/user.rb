@@ -11,6 +11,10 @@
 #  updated_at    :datetime
 #
 
+class AppAdmin < ActiveRecord::Base
+  belongs_to :user
+end
+
 class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation, :role
   
@@ -24,6 +28,11 @@ class User < ActiveRecord::Base
   
   has_many :requests
   
+  scope :admin, lambda {joins :admins}
+  
+  def role
+    self[:role] || "user"
+  end
   
   def self.authenticate(email, password)
     user = find_by_email(email)
@@ -41,3 +50,4 @@ class User < ActiveRecord::Base
     end
   end
 end
+

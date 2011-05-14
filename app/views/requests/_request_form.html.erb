@@ -5,8 +5,12 @@ Project ID: <%= @asset.id %><br />
 <% end %>
 
 </br>
-<%= simple_form_for @request do |f| %>
 
+<%=  %>
+<%= simple_form_for @request do |f| %>
+	<%= f.association :asset do |a| %>
+		<%= a.input :project%> 
+	<% end %>
 	<%= f.input :required_date %>
 	<%= f.input :status  %>
 	<%= f.input :recipient_id %>
@@ -14,4 +18,5 @@ Project ID: <%= @asset.id %><br />
 	<%= f.hidden_field :asset_id, :value => (@request.new_record? ? @asset.id : @request.asset_id) %>
 	<%= f.submit (@request.new_record? ? "Submit Request" : "Update Request" ) %>
 <% end %>
+
 

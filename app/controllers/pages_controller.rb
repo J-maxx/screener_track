@@ -29,6 +29,7 @@ class PagesController < ApplicationController
   
   
   def home
+
    @requests = []
     if current_user
      case current_user.role
@@ -46,6 +47,7 @@ class PagesController < ApplicationController
      else
       redirect_to login_path
     end
+
   end
 end
 

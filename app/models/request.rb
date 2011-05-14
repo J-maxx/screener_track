@@ -7,7 +7,7 @@
 #  user_id         :integer
 #  asset_id        :integer
 #  required_date   :date
-#  status          :string(255)ß
+#  status          :string(255)
 #  approver_id     :integer
 #  recipient_id    :integer
 #  delivery_method :string(255)
@@ -22,7 +22,6 @@ class Request < ActiveRecord::Base
   belongs_to :user
   belongs_to :asset
   has_one :project, :through => :asset
-  
-  #  How do we reuse the user table for this??? alias user id in the user table to recipient_id? Same for approver....
+
   
 end

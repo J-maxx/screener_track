@@ -29,6 +29,9 @@ ScreenerTrack::Application.routes.draw do
   match 'roles(:role)'     => 'pages#roles', :as => 'roles'
   match 'send_contact'     => 'pages#send_contact'
   
+  
+  post 'requests/process_request' => 'requests#process_request'
+  
   root :to => "pages#home"
   
   
