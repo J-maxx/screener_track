@@ -1,6 +1,7 @@
 <% if @request.new_record? %>
 <h2>Creating request for <%= @asset.version_name %><br />
-Project ID: <%= @asset.id %><br />
+Project ID: <%= @asset.project_id %><br />
+Project NAME: <% @asset.project.name %> <br />
 </h2>
 <% end %>
 
@@ -8,9 +9,7 @@ Project ID: <%= @asset.id %><br />
 
 <%=  %>
 <%= simple_form_for @request do |f| %>
-	<%= f.association :asset do |a| %>
-		<%= a.input :project%> 
-	<% end %>
+
 	<%= f.input :required_date %>
 	<%= f.input :status  %>
 	<%= f.input :recipient_id %>

@@ -23,5 +23,9 @@ class Request < ActiveRecord::Base
   belongs_to :asset
   has_one :project, :through => :asset
 
+
+  def status
+    self[:status] || "requested"
+  end
   
 end

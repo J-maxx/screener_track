@@ -29,20 +29,8 @@ class PagesController < ApplicationController
   
   
   def home
-
-   @requests = []
     if current_user
-     case current_user.role
-        when "user"
-        @assets = Asset.all
-        @requests = Request.where("user_id=#{current_user.id}" )# only this users requests
-        when "postcrew"
-        @requests = Request.where("user_id=2") # only requests with status = approved and not complete
-        when "manager"
-        @requests = Request.all # only requests with status = approved and not complete
-        else
-        @requests=[] # this is an error, should raise an exception
-     end
+       @assets = Asset.all
       render 'home'
      else
       redirect_to login_path

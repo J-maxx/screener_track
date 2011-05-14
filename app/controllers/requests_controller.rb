@@ -1,7 +1,7 @@
 class RequestsController < ApplicationController
   
   def new
-    @request = Request.new(:user_id => current_user)
+    @request = Request.new(:user_id => current_user, :asset_id=> params[:asset_id])
     @asset = Asset.find(params[:asset_id])
   end
 
