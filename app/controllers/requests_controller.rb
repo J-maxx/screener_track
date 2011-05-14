@@ -49,6 +49,7 @@ class RequestsController < ApplicationController
   end
   
   def process_request
+    @request = Request.find(params[:id])
     render params.inspect
   #  render "pages/faq"  # just to see if we get here.
   end
