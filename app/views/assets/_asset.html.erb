@@ -1,4 +1,6 @@
 
+<h3>PLEASE MAKE YOUR SCREENER REQUEST:</h3>
+
 <table class="assets">
   <tr>
     <th>ID</th>
@@ -13,8 +15,7 @@
 	<td><%= asset.version_name.upcase %></td>
     <td><%= asset.running_time.strftime("%X") %></td>
 	<td><%= link_to 'Show', asset %></td>
-    <td><%= link_to 'Edit', edit_asset_path(asset) %></td>
-    <td><%= link_to 'Destroy', asset, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= button_to 'UPDATE ASSET', edit_asset_path(asset) if current_user.role == 'manager' %></td>
 	<td><%= button_to 'REQUEST SCREENER', new_request_path(:asset_id => asset) %></td>
   </tr>
   <% end %>

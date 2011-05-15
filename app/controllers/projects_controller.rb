@@ -7,7 +7,7 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(params[:project])
       if @project.save
-        redirect_to root_url, :flash => {:success => "New project #{@project.name} has been created."}
+        redirect_to root_url, :notice => "New project #{@project.name} has been created."
       else
         render 'new'
     end
@@ -28,7 +28,7 @@ class ProjectsController < ApplicationController
   def update
      @project = Project.find(params[:id])
        if @project.update_attributes(params[:project])
-         redirect_to projects_path, :flash => {:success => "Project profile updated successfully."}
+         redirect_to projects_path, :notice => "Project profile updated successfully."
        else
          render 'edit'
      end

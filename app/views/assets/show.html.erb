@@ -1,2 +1,32 @@
-<h1>Assets#show</h1>
-<p>Find me in app/views/assets/show.html.erb</p>
+<% title "#{@asset.project.name}: #{@asset.version_name}" %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+	<b>Title:</b>
+	<%= @asset.project.name %>
+</p>
+
+<p>
+  <b>Name:</b>
+  <%= @asset.version_name %>
+</p>
+
+<p>
+  <b>Running time:</b>
+  <%= @asset.running_time.strftime("%X") %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @asset.cut_description %>
+</p>
+
+<p>
+  <b>Created At:</b>
+  <%= @asset.created_at %>
+</p>
+
+<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<%= link_to 'Back', assets_path %>
+

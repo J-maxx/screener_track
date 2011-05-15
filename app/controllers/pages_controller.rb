@@ -27,7 +27,6 @@ class PagesController < ApplicationController
     end
   end
   
-  
   def home
     if current_user
        @assets = Asset.all

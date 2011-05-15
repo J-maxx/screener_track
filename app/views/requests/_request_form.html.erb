@@ -1,7 +1,7 @@
 <% if @request.new_record? %>
 <h2>Creating request for <%= @asset.version_name %><br />
 Project ID: <%= @asset.project_id %><br />
-Project NAME: <% @asset.project.name %> <br />
+Project NAME: <%= @asset.project.name %> <br />
 </h2>
 <% end %>
 
@@ -11,11 +11,9 @@ Project NAME: <% @asset.project.name %> <br />
 <%= simple_form_for @request do |f| %>
 
 	<%= f.input :required_date %>
-	<%= f.input :status  %>
 	<%= f.input :recipient_id %>
 	<%= f.input :delivery_method %>
 	<%= f.hidden_field :asset_id, :value => (@request.new_record? ? @asset.id : @request.asset_id) %>
 	<%= f.submit (@request.new_record? ? "Submit Request" : "Update Request" ) %>
 <% end %>
-
 

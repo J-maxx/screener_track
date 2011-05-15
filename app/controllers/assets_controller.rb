@@ -1,13 +1,14 @@
 class AssetsController < ApplicationController
   
   def new
-    @asset = Asset.new
+    @asset = Asset.new(:user_id => current_user)
+    @project = Project.find(params[:project_id])
   end
 
   def create
     @asset = Asset.new(params[:asset])
       if @asset.save
-        redirect_to root_url, :flash => {:success => "New asset #{@asset.version_name} has been created."}
+        redirect_to root_url, :notice => "New asset #{@asset.version_name} has been created."
       else
         render 'new'
     end
@@ -28,7 +29,7 @@ class AssetsController < ApplicationController
   def update
      @asset = Asset.find(params[:id])
        if @asset.update_attributes(params[:asset])
-         redirect_to assets_path, :flash => {:success => "Project profile updated successfully."}
+         redirect_to assets_path, :notice => "Project profile updated successfully."
        else
          render 'edit'
      end

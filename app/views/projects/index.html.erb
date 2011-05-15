@@ -1,6 +1,7 @@
 <% title 'PROJECTS' %>
 
-<%=  link_to "Add new project?", new_project_path %>
-<br/><br/>
+<% if current_user.role == 'manager' %>
+	<%=  button_to "Add new project?", new_project_path %>
+<% end %>
 
-<%= render @projects %>
+<%= render 'project' %>

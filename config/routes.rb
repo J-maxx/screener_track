@@ -7,20 +7,23 @@ ScreenerTrack::Application.routes.draw do
   resources :requests
   
   match "requests/new" => "requests#new", :as => :new_request
+  delete 'requests/:id' => 'requests#destroy',  :as => :delete_request
   
   get   "logout"   => "sessions#destroy",  :as => "logout"
   get   "login"    => "sessions#new",      :as => "login"
   
   get   "signup"   => "users#new",         :as => "signup"
-  match "user/edit" => "users#edit", :as => "edit_current_user"
-  get "user/edit"
-  get "user/update"
+  get   "users/:id/edit" => "users#edit", :as => :edit_user
+
   
-  match "projects/index" => "projects#index", :as => "projects_list"
+  match 'projects/index' => 'projects#index',   :as => :projects_list
+  match 'projects/:id/edit' => 'projects#edit', :as => :edit_project
+  match 'projects/new'    => 'projects#new', :as => :new_project
 
-  delete "requests/:id" => "requests#destroy", :as => :delete_request
-
-
+  match 'assets'          => 'assets#index',  :as => :assets_list
+  match 'assets/:id/edit' => 'assets#edit',   :as => :edit_asset
+  match 'assets/new'      => 'assets#new',    :as => :new_asset
+  post  'assets/create'   => 'assets#create'
 
   match 'about'            => 'pages#about'
   match 'faq'              => 'pages#faq'
@@ -30,9 +33,11 @@ ScreenerTrack::Application.routes.draw do
   match 'send_contact'     => 'pages#send_contact'
   
   
-  post 'requests/process_request' => 'requests#process_request'
-  
-  root :to => "pages#home"
+#  post 'requests/process_request(:id, :sub_task)' => 'requests#process_request', :as => :process_request
+  post 'requests/approve' => 'requests#approve'
+  post 'requests/reject' => 'requests#reject'
+  post 'requests/fulfill' => 'requests#fulfill'
+  root :to => "pages#home" 
   
   
   
