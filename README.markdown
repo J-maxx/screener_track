@@ -25,21 +25,33 @@ The rake db: populate created 4 x types of users:
 
 You can login as any of the above user roles by using the following schema:<br />
 <br />
-username:	"<usertype>"@ff.com<br />
+**username:**	usertype@ff.com (i.e. manager@ff.com, user@ff.com, etc.)<br />
 <br />
-password:	pass<br />
+**password:**	pass<br />
 
 # BASIC WORKFLOW
 
-User makes request - status of request = 'requested'
-Approver approves or rejects the request: status ='approved' or 'rejected'
-Manager fulfills request: status = 'fulfilled'
+Here is a quick overview of the typical workflow for Screener Track:
+
+*User makes request - status of request = 'requested'
+
+*Approver approves or rejects the request: status ='approved' or 'rejected'
+
+*Manager fulfills request: status = 'fulfilled'
 
 And that is it.
 
-Also User, Post crew can see their own requests (ad edit? or maybe cancel?)
+Also User, Post crew can see their own requests
+
 Approver sees requests with status requested and can approve or reject
+
 Manager sees requests with status approved.
+
+# THAT'S IT FOR NOW
+
+This is a work in progress, but that is it for the moment.
+
+** Brought to you by J-maxx and Charissa **
 	
 	
 	
