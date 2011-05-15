@@ -6,7 +6,7 @@ class AssetsController < ApplicationController
   end
 
   def create
-    @asset = Asset.new(params[:asset])
+    @asset = current_user.assets.build(params[:asset])
       if @asset.save
         redirect_to root_url, :notice => "New asset #{@asset.version_name} has been created."
       else
@@ -33,5 +33,11 @@ class AssetsController < ApplicationController
        else
          render 'edit'
      end
+  end
+  
+  def destroy
+    @asset = Asset.find(params[:id])
+    @asset.destroy
+    redirect_to assets_path, :flash => {:success => "Asset destroyed."}
   end
 end

@@ -1,18 +1,16 @@
 
 <table class="projects">
   <tr>
-	<th>ID</th>
 	<th>NAME</th>
-	<th>CREATED AT</th>
+	<th>RELEASE DATE</th>
 	<th></th>
 	<td></td>
   </tr>
   <% @projects.each do |project| %>
   <tr>
-  	<td><%= project.id %></td>
-	<td><%= project.name %></td>
-	<td><%= project.created_at.strftime('%m/%d/%y') %></td>
-	<td><%= button_to "Update", edit_project_path(project) if current_user.role == 'manager' %></td>
+	<td><%= project.name.upcase %></td>
+	<td><%= project.release_date.strftime('%m/%d/%Y') %></td>
+	<td><%= button_to "Update Project", edit_project_path(project) if current_user.role == 'manager' %></td>
 	<td><%= button_to "Create Asset", new_asset_path(:project_id => project) if current_user.role == 'manager' || 'postcrew'%></td>
   <% end %>
   </tr>

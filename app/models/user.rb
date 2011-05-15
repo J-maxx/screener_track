@@ -1,5 +1,5 @@
 # == Schema Information
-# Schema version: 20110504030435
+# Schema version: 20110515161145
 #
 # Table name: users
 #
@@ -9,6 +9,8 @@
 #  password_salt :string(255)
 #  created_at    :datetime
 #  updated_at    :datetime
+#  role          :string(255)
+#  name          :string(255)
 #
 
 class AppAdmin < ActiveRecord::Base
@@ -16,17 +18,19 @@ class AppAdmin < ActiveRecord::Base
 end
 
 class User < ActiveRecord::Base
-  attr_accessible :email, :password, :password_confirmation, :role
+  attr_accessible :email, :password, :password_confirmation, :role, :name
   
   attr_accessor :password
   before_save :encrypt_password
   
   validates_confirmation_of :password
   validates_presence_of :password, :on => :create
+  validates_presence_of :name
   validates_presence_of :email
   validates_uniqueness_of :email
   
   has_many :requests
+  has_many :assets
   
   scope :admin, lambda {joins :admins}
   

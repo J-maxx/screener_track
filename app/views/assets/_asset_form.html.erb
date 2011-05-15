@@ -2,9 +2,11 @@
 </br>
 <%= simple_form_for @asset do |f| %>
 	<%= f.input :version_name %>
+	<%= f.input :version_number %>
+	<%= f.input :version_date %>
 	<%= f.input :running_time, :include_seconds => true  %>
 	<%= f.input :media %>
-	<%= f.input :cut_description %>
+	<%= f.input :cut_description, :label => "Description" %>
 	<%= f.hidden_field :project_id, :value => (@asset.new_record? ? @project.id : @asset.project_id) %>
 	<%= f.submit (@asset.new_record? ? "Create Asset" : "Update Asset" ) %>
 <% end %>

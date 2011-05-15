@@ -1,7 +1,6 @@
-<%= form_for @project do |f| %>
-	<p>
-		<%= f.label :name %>
-		<%= f.text_field :name %>	
-	</p>
-	<p><%= f.submit (@project.new_record? ? "Create Project" : "Update Project") %></p>
+<%= simple_form_for @project do |f| %>
+
+		<%= f.input :name %>
+		<%= f.input :release_date %>	
+		<%= f.submit (@project.new_record? ? "Create Project" : "Update Project") %></p>
 <% end %>

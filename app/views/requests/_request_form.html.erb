@@ -1,17 +1,13 @@
 <% if @request.new_record? %>
-<h2>Creating request for <%= @asset.version_name %><br />
-Project ID: <%= @asset.project_id %><br />
-Project NAME: <%= @asset.project.name %> <br />
-</h2>
+<h2>Creating NEW request for <%= @asset.project.name.upcase %></h2><br />
+
+
 <% end %>
 
-</br>
-
-<%=  %>
 <%= simple_form_for @request do |f| %>
 
-	<%= f.input :required_date %>
-	<%= f.input :recipient_id %>
+	<%= f.input :required_date, :label => "Required By" %>
+	<%= f.input :recipient_name, :label => "Recipient" %>
 	<%= f.input :delivery_method %>
 	<%= f.hidden_field :asset_id, :value => (@request.new_record? ? @asset.id : @request.asset_id) %>
 	<%= f.submit (@request.new_record? ? "Submit Request" : "Update Request" ) %>

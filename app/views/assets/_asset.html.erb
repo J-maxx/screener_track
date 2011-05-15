@@ -3,18 +3,17 @@
 
 <table class="assets">
   <tr>
-    <th>ID</th>
     <th>PROJECT</th>
-    <th>DESCRIPTION</th>
+    <th>VERSION</th>
+	<th>DESCRIPTION</th>
     <th>RUN TIME</th>
   </tr>
   <% @assets.each do |asset| %>
   <tr>
-    <td><%= asset.id %></td>
-	<td><%= asset.project.name %></td>
-	<td><%= asset.version_name.upcase %></td>
+	<td><%= link_to asset.project.name.upcase, asset %></td>
+	<td><%= asset.version_name %></td>
+	<td><%= asset.cut_description %></td>
     <td><%= asset.running_time.strftime("%X") %></td>
-	<td><%= link_to 'Show', asset %></td>
     <td><%= button_to 'UPDATE ASSET', edit_asset_path(asset) if current_user.role == 'manager' %></td>
 	<td><%= button_to 'REQUEST SCREENER', new_request_path(:asset_id => asset) %></td>
   </tr>

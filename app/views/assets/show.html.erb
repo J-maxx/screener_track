@@ -3,30 +3,40 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-	<b>Title:</b>
+	<b>PROJECT TITLE:</b>
 	<%= @asset.project.name %>
 </p>
 
 <p>
-  <b>Name:</b>
+  <b>VERSION:</b>
   <%= @asset.version_name %>
 </p>
 
 <p>
-  <b>Running time:</b>
+	<b>VERSION DATE:</b>
+	<%= @asset.version_date.strftime('%m/%d,%Y') %>
+</p>
+<p>
+  <b>RUNNING TIME:</b>
   <%= @asset.running_time.strftime("%X") %>
 </p>
 
+
 <p>
-  <b>Description:</b>
+  <b>DESCRIPTION:</b>
   <%= @asset.cut_description %>
 </p>
 
 <p>
-  <b>Created At:</b>
+  <b>CREATED ON:</b>
   <%= @asset.created_at %>
 </p>
 
-<%= link_to 'Edit', edit_asset_path(@asset) %> |
+<p>
+	<b>CREATED BY:</b>
+	<%= @asset.user.name %>
+</p>
+
+<%= link_to 'Edit', edit_asset_path(@asset) if current_user.role == 'manager' || 'postcrew'%> |
 <%= link_to 'Back', assets_path %>
 

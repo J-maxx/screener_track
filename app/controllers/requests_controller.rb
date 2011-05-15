@@ -53,8 +53,11 @@ class RequestsController < ApplicationController
       when "approve","reject"
         @request.status=action +( (action=='approve') ? 'd' : 'ed')
         @request.approver_id=current_user.id
+        @request.approval_date = Time.now
       when "fulfill"
          @request.status = 'fulfilled' 
+         @request.fulfilled_by = current_user
+         @request.fulfillment_date = Time.now
       end
       if @request.save
           redirect_to requests_url, :flash => {:success => "Request for #{@request.asset.version_name} has been "+@request.status+"."}
