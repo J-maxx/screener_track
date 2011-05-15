@@ -1,2 +1,6 @@
-<h1>Requests#show</h1>
-<p>Find me in app/views/requests/show.html.erb</p>
+<h1>Request Information </h1>
+
+
+<% @request.attributes.each do |k,v| %>
+<p> <%= k.capitalize %> : <%= v %> </p>
+<% end %>
