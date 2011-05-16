@@ -21,14 +21,14 @@
 	<td><%= request.status %></td>
 	<td><%= link_to 'SHOW', request %></td>
     <td><%= button_to 'EDIT REQUEST', edit_request_path(request) if request.status != 'fulfilled' && request.user_id == current_user.id %></td>
-  </tr>
+
 
 	<% @buttons.each do |b|%>
 	<td>
 	<%= button_to b.capitalize, {:action => b, :controller => :requests, :request_id =>request.id, :method => :post} %> 
 	</td>
 	<% end %>
-
+  </tr>
   <% end %>
 
 </table>

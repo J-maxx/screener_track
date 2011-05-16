@@ -8,6 +8,7 @@ ScreenerTrack::Application.routes.draw do
   
   match "requests/new" => "requests#new", :as => :new_request
   delete 'requests/:id' => 'requests#destroy',  :as => :delete_request
+  match 'requests/:id/edit' => 'requests#edit', :as => :edit_request
   
   get   "logout"   => "sessions#destroy",  :as => "logout"
   get   "login"    => "sessions#new",      :as => "login"
@@ -15,6 +16,7 @@ ScreenerTrack::Application.routes.draw do
   get   "signup"   => "users#new",         :as => "signup"
   get   "users/:id/edit" => "users#edit", :as => :edit_user
 
+  
   
   match 'projects/index' => 'projects#index',   :as => :projects_list
   match 'projects/:id/edit' => 'projects#edit', :as => :edit_project
